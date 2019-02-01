@@ -1,0 +1,75 @@
+        <div class="jumbotron text-center">
+            <h1>Application form for Motorcar/ Microbus/ Ambulance/ Bus/ Minibus </h1> 
+
+            <h2><span style="line-height:1.5em;"> Fill up the application form for transport reservation</span></h2>
+            <h3><?php echo $message; ?></h3>
+            <div class="col-lg-6 col-lg-offset-3">
+
+                <form method="post">
+                    <?php if (!$user->hasPermission("admin")) { ?>
+                        <div class="form-group">
+                            <label for="head_name">Name of departmental head(for official use):</label>
+                            <input type="text" class="form-control" id="head_name" name="dept_head" value="<?php echo $dept_head['name']; ?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="dng">Designation:</label>
+                            <input type="text" class="form-control" id="dng" name="desig">
+                        </div>
+                    <?php } ?>
+                    <div class="form-group">
+                        <label for="date1">Reservation date:</label>
+                        <input type="date" class="form-control" id="date1" name="reserve_date" >
+                    </div>
+                    <div class="form-group">
+                        <label for="date1">Reservation Time:</label>
+                        <input type="time" class="form-control" id="date1" name="reserve_time" >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="date2">Return date:</label>
+                        <input type="date" class="form-control" id="date2" name="return_date">
+                    </div>
+                    <div class="form-group">
+                        <label for="date2">Return Time:</label>
+                        <input type="time" class="form-control" id="date2" name="return_time">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="place">Destination :</label>
+                        <textarea class="form-control" id="place" row="3" name="destination"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="place1">Depart from:</label>
+                        <input type="text" class="form-control" id="place1" name="depart_from">
+                    </div>
+                    <div class="form-group">
+                        <label for="reason">Reason for trip(official/personal):</label>
+                        <textarea class="form-control" id="reason" name="reason"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="vechicle-type">Vehicle Type:</label>
+                        <select  class="form-control" id="vehicle-type" name="vehicle-type">
+                            <?php
+                            while ($vt = $vtype->fetch_assoc()) {
+                                echo '<option value="' . $vt['btype'] . '">' . $vt['btype'] . '</option>';
+                            }
+                            ?>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-default" name="submit" value="submit">Submit</button>
+                </form>
+            </div>
+        </div>  
+		
+		
+		
+		
+		<div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <div class="panel-title"> <h2 style="color:blue">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbspApplication form for Motorcar/ Microbus/  <br>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Ambulance/ Bus/ Minibus</h2></div>
+ 
+                        </div>  
+                        <div class="panel-body" >
